@@ -26,6 +26,7 @@ namespace joytobutton
             InitializeComponent();
         }
 
+
         private void ButtonGear1_Click(object sender, RoutedEventArgs e)
         {
             RectGear1.Visibility = Visibility.Hidden;
@@ -69,15 +70,15 @@ namespace joytobutton
 
         private void CanvasClick(object sender, MouseEventArgs e)
         {
-            if(RectGear1.Visibility == Visibility.Hidden)
+            if (RectGear1.Visibility == Visibility.Hidden)
             {
                 Point dropPosition = e.GetPosition(BoxWhite);
                 RectGear1.Visibility = Visibility.Visible;
-                
-                Canvas.SetLeft(RectGear1, (dropPosition.X- 50));
-                Canvas.SetTop(RectGear1, (dropPosition.Y- 50));
+
+                Canvas.SetLeft(RectGear1, (dropPosition.X - 50));
+                Canvas.SetTop(RectGear1, (dropPosition.Y - 50));
             }
-            else if(RectGear2.Visibility == Visibility.Hidden)
+            else if (RectGear2.Visibility == Visibility.Hidden)
             {
                 Point dropPosition = e.GetPosition(BoxWhite);
                 RectGear2.Visibility = Visibility.Visible;
@@ -85,7 +86,7 @@ namespace joytobutton
                 Canvas.SetLeft(RectGear2, (dropPosition.X - 50));
                 Canvas.SetTop(RectGear2, (dropPosition.Y - 50));
             }
-            else if(RectGear3.Visibility == Visibility.Hidden)
+            else if (RectGear3.Visibility == Visibility.Hidden)
             {
                 Point dropPosition = e.GetPosition(BoxWhite);
                 RectGear3.Visibility = Visibility.Visible;
@@ -93,7 +94,7 @@ namespace joytobutton
                 Canvas.SetLeft(RectGear3, (dropPosition.X - 50));
                 Canvas.SetTop(RectGear3, (dropPosition.Y - 50));
             }
-            else if(RectGear4.Visibility == Visibility.Hidden)
+            else if (RectGear4.Visibility == Visibility.Hidden)
             {
                 Point dropPosition = e.GetPosition(BoxWhite);
                 RectGear4.Visibility = Visibility.Visible;
@@ -101,7 +102,7 @@ namespace joytobutton
                 Canvas.SetLeft(RectGear4, (dropPosition.X - 50));
                 Canvas.SetTop(RectGear4, (dropPosition.Y - 50));
             }
-            else if(RectGear5.Visibility == Visibility.Hidden)
+            else if (RectGear5.Visibility == Visibility.Hidden)
             {
                 Point dropPosition = e.GetPosition(BoxWhite);
                 RectGear5.Visibility = Visibility.Visible;
@@ -109,7 +110,7 @@ namespace joytobutton
                 Canvas.SetLeft(RectGear5, (dropPosition.X - 50));
                 Canvas.SetTop(RectGear5, (dropPosition.Y - 50));
             }
-            else if(RectGear6.Visibility == Visibility.Hidden)
+            else if (RectGear6.Visibility == Visibility.Hidden)
             {
                 Point dropPosition = e.GetPosition(BoxWhite);
                 RectGear6.Visibility = Visibility.Visible;
@@ -117,7 +118,7 @@ namespace joytobutton
                 Canvas.SetLeft(RectGear6, (dropPosition.X - 50));
                 Canvas.SetTop(RectGear6, (dropPosition.Y - 50));
             }
-            else if(RectGear7.Visibility == Visibility.Hidden)
+            else if (RectGear7.Visibility == Visibility.Hidden)
             {
                 Point dropPosition = e.GetPosition(BoxWhite);
                 RectGear7.Visibility = Visibility.Visible;
@@ -125,7 +126,7 @@ namespace joytobutton
                 Canvas.SetLeft(RectGear7, (dropPosition.X - 50));
                 Canvas.SetTop(RectGear7, (dropPosition.Y - 50));
             }
-            else if(RectGearR.Visibility == Visibility.Hidden)
+            else if (RectGearR.Visibility == Visibility.Hidden)
             {
                 Point dropPosition = e.GetPosition(BoxWhite);
                 RectGearR.Visibility = Visibility.Visible;
@@ -134,7 +135,6 @@ namespace joytobutton
                 Canvas.SetTop(RectGearR, (dropPosition.Y - 50));
             }
         }
-
 
     }
 }
