@@ -16,7 +16,7 @@
                         <ScaleTransform/>
                         <SkewTransform/>
                         <RotateTransform/>
-                        <TranslateTransform X="0" Y="0"/>
+                        <TranslateTransform X="0" Y="100"/>
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
