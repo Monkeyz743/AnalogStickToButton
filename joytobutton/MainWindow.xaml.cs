@@ -24,6 +24,9 @@ namespace joytobutton
         public MainWindow()
         {
             InitializeComponent();
+            var inputMonitor = new ControllerIn();
+            inputMonitor.Start();
+
         }
 
 
