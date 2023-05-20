@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,18 +19,27 @@ namespace joytobutton
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /// </summary>  
+
     public partial class MainWindow : Window
     {
+
+        private Timer _timer;
+        private const int RefreshRate = 60;
+
         public MainWindow()
         {
             InitializeComponent();
             var inputMonitor = new ControllerIn();
             inputMonitor.Start();
+            _timer = new Timer(obj => Dots());
+            _timer.Change(0, 1000 / RefreshRate);
 
         }
 
 
+        //Toggles visibility of boxes and allows repositioning with mouse clicks
+        #region Gear Button Clicks
         private void ButtonGear1_Click(object sender, RoutedEventArgs e)
         {
             RectGear1.Visibility = Visibility.Hidden;
@@ -138,6 +148,19 @@ namespace joytobutton
                 Canvas.SetTop(RectGearR, (dropPosition.Y - 50));
             }
         }
+        #endregion
+
+        [STAThread]
+        private void Dots()
+        {
+            ControllerIn ctrl = new ControllerIn();
+            var x = ctrl.XInput();
+            var y = ctrl.YInput();
+
+            Draw.Circle(100, 100, 100, BoxWhite);
+
+        }
+
 
     }
 }
