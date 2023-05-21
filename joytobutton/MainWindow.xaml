@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:joytobutton"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="1000"
+        Title="MainWindow" Height="700
+        " Width="1000"
         ResizeMode="NoResize">
     <Grid Background="DimGray">
-        <Canvas x:Name="BoxWhite" Height="NaN" Margin="150,10,150,10" Width="NaN" Background="White" MouseLeftButtonDown="CanvasClick">
+        <Canvas x:Name="BoxWhite" Height="655" Width="655" Background="White" MouseLeftButtonDown="CanvasClick">
 
             <Rectangle x:Name="RectGear1" Height="100" Width="100" Stroke="Red" StrokeThickness="3" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
                 <Rectangle.RenderTransform>

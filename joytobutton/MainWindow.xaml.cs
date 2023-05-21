@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace joytobutton
 {
@@ -26,14 +27,13 @@ namespace joytobutton
 
         private Timer _timer;
         private const int RefreshRate = 60;
-
         public MainWindow()
         {
             InitializeComponent();
             var inputMonitor = new ControllerIn();
             inputMonitor.Start();
-            _timer = new Timer(obj => Dots());
-            _timer.Change(0, 1000 / RefreshRate);
+            Dots();
+  
 
         }
 
@@ -149,16 +149,54 @@ namespace joytobutton
             }
         }
         #endregion
-
-        [STAThread]
-        private void Dots()
+        
+        
+        //[System.STAThread]
+        private async void Dots()
         {
-            ControllerIn ctrl = new ControllerIn();
-            var x = ctrl.XInput();
-            var y = ctrl.YInput();
 
-            Draw.Circle(100, 100, 100, BoxWhite);
+            Random rnd = new Random();
 
+            for (int i = 0; i < 5; i++)
+            {
+                //int X = rnd.Next(100, 150);
+                //int Y = rnd.Next(100, 150);
+
+                ControllerIn ctrl = new ControllerIn();
+                var x = ctrl.XInput();
+                var y = ctrl.YInput();
+
+                Draw.Circle(x, y, 10, BoxWhite);
+
+                Thread.Sleep(1000);
+            }
+
+        }
+
+
+        class Draw
+        {
+            public static void Circle(int x, int y, int diam, Canvas cv)
+            {
+                
+                //Dispatcher.Invoke(() =>
+                //{
+                    Ellipse Circle = new Ellipse()
+                    {
+                        Width = diam,
+                        Height = diam,
+                        Stroke = Brushes.Black,
+                        StrokeThickness = 10
+                    };
+
+                    cv.Children.Add(Circle);
+
+                    Circle.SetValue(Canvas.LeftProperty, (double)x);
+                    Circle.SetValue(Canvas.TopProperty, (double)y);
+                //}, System.Windows.Threading.DispatcherPriority.Normal);
+                
+                
+            }
         }
 
 

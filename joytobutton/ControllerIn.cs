@@ -31,14 +31,14 @@ namespace joytobutton
         public int XInput()
         {
             _controller.GetState(out var state);
-            var x = state.Gamepad.LeftThumbX / 2_000;
+            var x = (state.Gamepad.LeftThumbX + 32768) / 1_00;
 
             return x;
         }
         public int YInput()
         {
             _controller.GetState(out var state);
-            var y = state.Gamepad.LeftThumbY / 2_000;
+            var y = (state.Gamepad.LeftThumbY + 32768) / 1_00;
 
             return y;
         }
@@ -51,10 +51,10 @@ namespace joytobutton
         private void Update()
         {
             _controller.GetState(out var state);
-            var x = state.Gamepad.LeftThumbX / 2_000;
-            var y = state.Gamepad.LeftThumbY / 2_000;
+            var x = (state.Gamepad.LeftThumbX + 32768) / 1_00 / 1.5;
+            var y = (state.Gamepad.LeftThumbY + 32768) / 1_00 / 1.5;
 
-            Debug.WriteLine($"X={state.Gamepad.LeftThumbX}  Y={state.Gamepad.LeftThumbY}");
+            //Debug.WriteLine($"X={state.Gamepad.LeftThumbX}  Y={state.Gamepad.LeftThumbY}");
             Debug.WriteLine($"X={x}  Y={y}");
             Debug.WriteLine("\r\n");
 
@@ -65,23 +65,6 @@ namespace joytobutton
 
     }
 
-    public class Draw
-    {
-        public static void Circle(int x, int y, int diam, Canvas cv)
-        {
-            Ellipse Circle = new Ellipse()
-            {
-                Width = diam,
-                Height = diam,
-                Stroke = Brushes.Red,
-                StrokeThickness = 6
-            };
-
-            cv.Children.Add(Circle);
-
-            Circle.SetValue(Canvas.LeftProperty, (double)x);
-            Circle.SetValue(Canvas.TopProperty, (double)y);
-        }
-    }
+    
 
 }
