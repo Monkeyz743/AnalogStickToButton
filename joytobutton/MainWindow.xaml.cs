@@ -43,6 +43,7 @@ namespace joytobutton
             dotTimer.Tick += DotTimerEvent;
             dotTimer.Interval = TimeSpan.FromMilliseconds(timerTime);
             dotTimer.Start();
+
   
 
         }
