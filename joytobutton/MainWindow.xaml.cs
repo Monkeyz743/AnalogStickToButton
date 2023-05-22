@@ -25,16 +25,31 @@ namespace joytobutton
     public partial class MainWindow : Window
     {
 
-        private Timer _timer;
-        private const int RefreshRate = 60;
+        DispatcherTimer dotTimer = new DispatcherTimer();
+        //How often a dot is drawn (in milliseconds)
+        int timerTime = 200;
+
+
+        //private Timer _timer;
+        //private const int RefreshRate = 60;
         public MainWindow()
         {
             InitializeComponent();
             var inputMonitor = new ControllerIn();
             inputMonitor.Start();
-            Dots();
+
+            BoxWhite.Focus();
+
+            dotTimer.Tick += DotTimerEvent;
+            dotTimer.Interval = TimeSpan.FromMilliseconds(timerTime);
+            dotTimer.Start();
   
 
+        }
+
+        private void DotTimerEvent(object? sender, EventArgs e)
+        {
+            Dots();
         }
 
 
@@ -152,24 +167,19 @@ namespace joytobutton
         
         
         //[System.STAThread]
-        private async void Dots()
+        private void Dots()
         {
 
             Random rnd = new Random();
 
-            for (int i = 0; i < 5; i++)
-            {
-                //int X = rnd.Next(100, 150);
-                //int Y = rnd.Next(100, 150);
+            int x = rnd.Next(0, 655);
+            int y = rnd.Next(0, 655);
 
-                ControllerIn ctrl = new ControllerIn();
-                var x = ctrl.XInput();
-                var y = ctrl.YInput();
+            //ControllerIn ctrl = new ControllerIn();
+            //var x = ctrl.XInput();
+            //var y = ctrl.YInput();
 
-                Draw.Circle(x, y, 10, BoxWhite);
-
-                Thread.Sleep(1000);
-            }
+            Draw.Circle(x, y, 10, BoxWhite);
 
         }
 
