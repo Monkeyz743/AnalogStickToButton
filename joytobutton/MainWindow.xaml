@@ -11,7 +11,7 @@
     <Grid Background="DimGray">
         <Canvas x:Name="BoxWhite" Height="655" Width="655" Background="White" MouseLeftButtonDown="CanvasClick">
 
-            <Rectangle x:Name="RectGear1" Height="100" Width="100" Stroke="Red" StrokeThickness="3" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Rectangle x:Name="RectGear1" Height="100" Width="100" Stroke="Red" StrokeThickness="3" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Uid="Rect1">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -21,7 +21,7 @@
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <Rectangle x:Name="RectGear2" Height="100" Width="100" Stroke="DarkOrange" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Rectangle x:Name="RectGear2" Height="100" Width="100" Stroke="DarkOrange" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" Uid="Rect2">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -31,7 +31,7 @@
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <Rectangle x:Name="RectGear3" Height="100" Width="100" Stroke="#FFFFEA00" StrokeThickness="3" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Rectangle x:Name="RectGear3" Height="100" Width="100" Stroke="#FFFFEA00" StrokeThickness="3" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Uid="Rect3">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -41,7 +41,7 @@
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <Rectangle x:Name="RectGear4" Height="100" Width="100" Stroke="#FF4EFF00" StrokeThickness="3" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Rectangle x:Name="RectGear4" Height="100" Width="100" Stroke="#FF4EFF00" StrokeThickness="3" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Uid="Rect4">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -51,7 +51,7 @@
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <Rectangle x:Name="RectGear5" Height="100" Width="100" Stroke="#FF00F9FF" StrokeThickness="3" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Rectangle x:Name="RectGear5" Height="100" Width="100" Stroke="#FF00F9FF" StrokeThickness="3" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Uid="Rect5">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -61,7 +61,7 @@
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <Rectangle x:Name="RectGear6" Height="100" Width="100" Stroke="#FF0004FF" StrokeThickness="3" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Rectangle x:Name="RectGear6" Height="100" Width="100" Stroke="#FF0004FF" StrokeThickness="3" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Uid="Rect6">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -71,7 +71,7 @@
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <Rectangle x:Name="RectGear7" Height="100" Width="100" Stroke="#FFCE00FF" StrokeThickness="3" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Rectangle x:Name="RectGear7" Height="100" Width="100" Stroke="#FFCE00FF" StrokeThickness="3" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Uid="Rect7">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -81,7 +81,7 @@
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <Rectangle x:Name="RectGearR" Height="100" Width="100" Stroke="#FFFF92C9" StrokeThickness="3" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Rectangle x:Name="RectGearR" Height="100" Width="100" Stroke="#FFFF92C9" StrokeThickness="3" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Uid="Rect8">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -94,7 +94,7 @@
 
         </Canvas>
         
-        <ComboBox x:Name="ComboBox" HorizontalAlignment="Right" Margin="0,276,21,0" VerticalAlignment="Top" Width="107" Height="22" ItemsSource="{Binding }">
+        <ComboBox x:Name="ComboBox" HorizontalAlignment="Right" Margin="0,276,32,0" VerticalAlignment="Top" Width="107" Height="22" ItemsSource="{Binding }">
             <ComboBoxItem Content="Test1"/>
             <ComboBoxItem Content="Test2"/>
         </ComboBox>
@@ -116,6 +116,8 @@
         <Rectangle HorizontalAlignment="Right" Height="20" Margin="0,140,127,0" VerticalAlignment="Top" Width="16" Fill="#FF0004FF"/>
         <Rectangle HorizontalAlignment="Right" Height="20" Margin="0,165,127,0" VerticalAlignment="Top" Width="16" Fill="#FFCE00FF"/>
         <Rectangle HorizontalAlignment="Right" Height="20" Margin="0,190,127,0" VerticalAlignment="Top" Width="16" Fill="#FFFF92C9"/>
+
+        <Button x:Name="ButtonClear" Content="Clear" HorizontalAlignment="Right" Margin="0,500,47,0" VerticalAlignment="Top" Height="20" Width="75" Click="ButtonClear_Click"/>
 
 
     </Grid>

@@ -179,7 +179,8 @@ namespace joytobutton
             //ControllerIn ctrl = new ControllerIn();
             //var x = ctrl.XInput();
             //var y = ctrl.YInput();
-
+            
+            //Draw drw = new Draw();
             Draw.Circle(x, y, 10, BoxWhite);
 
         }
@@ -187,29 +188,58 @@ namespace joytobutton
 
         class Draw
         {
-            public static void Circle(int x, int y, int diam, Canvas cv)
+            private List<UIElement> itemstoremove = new List<UIElement>();
+           
+            
+            public void Circle(int x, int y, int diam, Canvas cv)
             {
                 
-                //Dispatcher.Invoke(() =>
-                //{
-                    Ellipse Circle = new Ellipse()
+                Ellipse Circle = new Ellipse()
+                {
+                    Width = diam,
+                    Height = diam,
+                    Stroke = Brushes.Black,
+                    StrokeThickness = 10
+                };
+
+                cv.Children.Add(Circle);
+
+                Circle.SetValue(Canvas.LeftProperty, (double)x);
+                Circle.SetValue(Canvas.TopProperty, (double)y);
+
+                foreach (UIElement ui in cv.Children)
+                {
+                    if (ui.Uid.StartsWith("Rect"))
                     {
-                        Width = diam,
-                        Height = diam,
-                        Stroke = Brushes.Black,
-                        StrokeThickness = 10
-                    };
 
-                    cv.Children.Add(Circle);
+                    }
+                    else
+                    {
+                        itemstoremove.Add(ui);
+                    }
+                }
 
-                    Circle.SetValue(Canvas.LeftProperty, (double)x);
-                    Circle.SetValue(Canvas.TopProperty, (double)y);
-                //}, System.Windows.Threading.DispatcherPriority.Normal);
-                
-                
             }
+
+            public void Clear()
+            {
+                MainWindow mw = new MainWindow();
+
+                foreach (UIElement ui in itemstoremove)
+                {
+                    mw.BoxWhite.Children.Remove(ui);
+                }
+            }
+            
         }
 
+        public void ButtonClear_Click(object sender, RoutedEventArgs e)
+        {
+            //Draw drw = new Draw();
+            Draw.Clear();
+
+
+        }
 
     }
 }
